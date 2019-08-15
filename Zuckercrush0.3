@@ -1,0 +1,76 @@
+javascript:
+var host = window.location.hostname;
+var pathname = window.location.pathname;
+var fullurl = host + pathname;
+var https_host = "https://" + host + pathname;
+var ps = fullurl.split("/")[1];
+switch (host) {
+    case "www.instagram.com":
+        switch(ps) {
+            case "p":
+                    var linkvid = document.getElementsByClassName("tWeCl")[0];
+                    if(linkvid == undefined){
+                    var length_photo = document.getElementsByClassName("FFVAD").length;
+                    var linkins = length_photo - 1;
+                    var link_photo = document.getElementsByClassName("FFVAD")[linkins].currentSrc;
+                    window.open(link_photo, '_blank');
+                        
+                    }else{
+                        var linkvid = linkvid.currentSrc;
+                        window.open(linkvid, '_blank');
+                    }
+            break;
+            case "stories":
+                    var photo = document.getElementsByClassName('y-yJ5')[0].src;
+                if(photo == null){
+                    var video = document.getElementsByClassName('y-yJ5')[2].currentSrc;
+                    window.open(video, '_blank'); 
+                }
+                else{
+                    window.open(photo , '_blank');
+                }
+            break;
+            default:
+                
+            }
+    break;
+    case "www.facebook.com":
+              switch (ps) {
+                  case "stories":
+                      var link_videofb = document.getElementsByClassName("k4urcfbm l9j0dhe7 qowsmv63 datstx6m j83agx80")[0].getElementsByTagName("video")[0].currentSrc;
+                      window.open(link_videofb, '_blank');
+                      break;
+                  case "watch":
+                        var js = document.documentElement.innerHTML;
+                        var start = js.search('"hd_src":"');
+                        var end = js.search('","sd_src"');
+                        var getvideofb = js.substring(start+51,end);
+                        var xulylink = getvideofb.replace("\\","");
+                        var xulylink = xulylink.replace("\\","");
+                        var videofb = "https://scontent-lga3-1.xx.fbcdn.net"+xulylink;
+                        window.open(videofb , '_blank');
+                  break;
+                  case "groups":
+                        var jsgr = document.documentElement.innerHTML;
+                        var start = jsgr.search(',hd_src:"');
+                        var end = jsgr.search('",sd_src:"');
+                        var getvideogr = jsgr.substring(start+9,end);
+                        window.open(getvideogr , '_blank');
+
+                  break;
+                 default:
+                        document.getElementsByClassName('_7yy')[0].innerHTML;
+        break;
+              }  
+        break;
+                default:
+                        var tumblr = document.querySelector("meta[property='og:video']").getAttribute("content");
+                        window.open(tumblr , '_blank');
+        break;
+}
+
+
+
+
+
+                 
